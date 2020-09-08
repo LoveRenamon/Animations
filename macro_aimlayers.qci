@@ -73,9 +73,9 @@ $continue $layername$
 // putting the hand facing the ground causes calcblend to go all over the place. love you too, source.
 // for this reason, aimlayer_magic has a pistol pose that gets delta'd to the hand facing downwards.
 
-$sequence aimlayer_magic_delta_ref "../aimlayers/aimlayer_magic" hidden
-$animation a_aimlayer_magic_delta "../aimlayers/aimlayer_magic_delta" subtract aimlayer_magic_delta_ref 4
-$sequence aimlayer_magic_delta a_aimlayer_magic_delta loop fps 1 delta hidden
+$sequence "aimlayer_magic_delta_ref" "../aimlayers/aimlayer_magic" hidden
+$animation "a_aimlayer_magic_delta" "../aimlayers/aimlayer_magic_delta" subtract "aimlayer_magic_delta_ref" 4
+$sequence "aimlayer_magic_delta" "a_aimlayer_magic_delta" loop fps 1 delta hidden
 
 $definemacro MakeAimLayerTelekinesis layername filename \\
 $animation a_$layername$_neutral $filename$ frame 4 4 weightlist AimLayerWL ikrule lhand touch "ValveBiped.Bip01_Head1" usesource \\
