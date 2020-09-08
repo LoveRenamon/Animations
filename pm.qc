@@ -13,7 +13,6 @@ $include "includes/anims.qci" // Nossas animações em overrides
 //$include "includes/physics.qci" // Para testes e para uso na SourceFilm Maker não é necessário. 
 //$include "includes/proportion_trick.qci" // Incluir se necessário. Neste caso é.
 
-$proceduralbones "includes/proceduralbones.vrd" // Você deve fazer o seu próprio, caso use a proportion trick.
-
 $includemodel "debiddo/f_anm.mdl" // Minhas animações customizadas.
+$proceduralbones "includes/proceduralbones_f.vrd" // Você deve fazer o seu próprio caso use a proportion trick.
 $includemodel "f_anm.mdl" // Diretório das animações default do Garry's Mod para Playermodels em 9way
