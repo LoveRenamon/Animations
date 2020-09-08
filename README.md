@@ -1,4 +1,6 @@
-# gmod-animations
-Automatically exported from code.google.com/p/gmod-animations
+# ArkjGd-Animations
+Aqui aos poucos, uma biblioteca de animações que seja compatível com o Blender e para fácil porte de animações customizadas que não diretamente dependam das originais do jogo.
+Também, de forma mais simples e direta sobre como cada uma delas funcionam. Sem frescuras.
 
-This repo is linked to from http://wiki.garrysmod.com/. It contains some examples and sources for Garry's Mod player models and c_ hands/weapons. 
+Porque? 
+Ora, para permitir um método além do tradicional Proportion-Trick do CaptainBigButt onde as kinemáticas *(IK)* ficam quebradas para animações de personagens com proporções muito pequenas.
