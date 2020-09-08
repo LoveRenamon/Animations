@@ -1,0 +1,11 @@
+/* Kinemáticas */
+//$ikchain "pelvis" "valvebiped.Bip01_Pelvis" Z 0 knee 0.707 0.707 0
+$ikchain "rhand" "ValveBiped.Bip01_R_Hand" knee 0.5 0.5 -0.2
+$ikchain "lhand" "ValveBiped.Bip01_L_Hand" knee 0.5 0.5 -0.2
+$ikchain "rfoot" "ValveBiped.Bip01_R_Foot" knee 0.707 -0.707 0 radius 21 center -4 0 20
+$ikchain "lfoot" "ValveBiped.Bip01_L_Foot" knee 0.707 -0.707 0 radius 21 center -4 0 20
+
+$ikautoplaylock "rhand" 0.4 0.5 // lock right hand
+$ikautoplaylock "lhand" 0.4 0.5 // lock left hand
+$ikautoplaylock "rfoot" 0.5 0.1 // lock right leg
+$ikautoplaylock "lfoot" 0.5 0.1 // lock left leg

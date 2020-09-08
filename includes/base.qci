@@ -1,0 +1,129 @@
+/* Base */
+$cdmaterials "models/debiddo/msyu" // Diretório dos materiais a serem usados no gmod. Escolha sua preferência
+$surfaceprop "flesh" // Msyu é feita de carne e osso por padrão.
+$opaque // Nossa referência não tem partes translúcidas ou transparentes. Caso contrário, seria $mostlyopaque
+//$transparent // Somente se tudo for transparente, e removendo a linha acima.
+
+$texturegroup "Skins" { // O seletor de materiais.
+	{ "corpo" "olhos" } // Isso funciona como uma tabela onde substituímos uma linha pela outra
+	{ "corpo2" "olhos2" }
+}
+
+// Sequencialmente, adicionamos as malhas 3D definindo a seleção. Ainda preciso entender melhor sobre "eyeball"
+$model "Nome" "mesh/Nome_da_Malha.dmx" /*{ // recomendo usar isso com somente para o rosto do personagem.
+	$include "includes/flex.qci" // Controladores das expressões faciais. Ainda não pronto.
+	eyeball "righteye" "ValveBiped.Bip01_Head1" -1.378890 -8.432425 67.921111 "righteye" 2.038 30 //"iris_unused" 3
+	eyeball "lefteye" "ValveBiped.Bip01_Head1" 1.397349 -8.432425 67.921111 "lefteye" 2.038 -30 //"iris_unused" 3
+} */
+
+$bodygroup "Nome do Bodygroup" { // Sim, podemos usar espaços
+	studio "mesh/AlgumaCoisa1.dmx" // Seja organizado. Coloque sua malha em uma pasta separada.
+	studio "mesh/AlgumaCoisa2" // Sim, podemos negligenciar a extenção, contanto que não exista um .smd e um .dmx com o mesmo nome
+	blank // Adiciona um slot em branco
+}
+$bodygroup "BodyGroup2" { // podemos ter até 20 deles para Garry's Mod
+	blank // "blank", "$model" e "body" somados também contam dentro do limite de 20
+	studio "mesh/wings" //
+}
+
+// Attachments são basicamente "pontos de referência", alguns ainda não sei para que servem exatamente.
+$attachment "anim_attachment_RH" "ValveBiped.Anim_Attachment_RH" 0 0 0 rotate -90 -90 0
+$attachment "anim_attachment_LH" "ValveBiped.Anim_Attachment_LH" 0 0 0 rotate -90 -90 0
+$attachment "anim_attachment_head" "ValveBiped.Bip01_Head1" 0 0 0 rotate -90 -90 0
+$attachment "forward" "ValveBiped.forward" 0 0 0 rotate 0 0 0 // Para onde a cabeça deve apontar. Como uma mira, usado muito por NPCs
+$attachment "eyes" "ValveBiped.Bip01_Head1" 0.90 -1.3 0 rotate 0 -80 -90
+$attachment "lefteye" "ValveBiped.Bip01_Head1" 0.9 -1.3 -1.3 rotate 0 -80 -90
+$attachment "righteye" "ValveBiped.Bip01_Head1" 0.9 -1.3 1.3 rotate 0 -80 -90
+$attachment "nose" "ValveBiped.forward" -0.35 0 -1.85 rotate 0 -90 -90
+$attachment "mouth" "ValveBiped.Bip01_Head1" -0.75 -2.5 0 rotate 0 -80 -90
+$attachment "hips" "ValveBiped.Bip01_Pelvis" 0 0 0 rotate -90 -90 0
+$attachment "lefthand" "ValveBiped.Bip01_L_Hand" 4.5 -2 0 rotate 0 0 0
+$attachment "righthand" "ValveBiped.Bip01_R_Hand" 4.5 -2 0 rotate 0 0 0
+$attachment "pouch1" "ValveBiped.Bip01_Pelvis" 5.5 1 2 rotate -90 -90 0
+$attachment "pouch2" "ValveBiped.Bip01_Pelvis" 6.5 0.5 -2 rotate -90 -90 0
+$attachment "chest" "ValveBiped.Bip01_Spine2" 5 4 0 rotate 0 90 90
+$attachment "emp" "ValveBiped.Anim_Attachment_RH" 0 0 0 rotate -90 0 -90
+$attachment "emp_LH" "ValveBiped.Anim_Attachment_LH" 0 0 0 rotate -90 0 -90
+$attachment "L_shoulderBladeAim" "ValveBiped.Bip01_Spine" 2 2 8.5 rotate 0 0 16
+$attachment "R_shoulderBladeAim" "ValveBiped.Bip01_Spine" 2 4 9.9 rotate 0 0 17
+//$attachment "gun" "ValveBiped.weapon_bone" 0 0 0 // nunca vi nada usando esse attachment
+//$attachment "amulet" "ValveBiped.Bip01_Spine4"  0.3 5 0 rotate 0 90 90 // nunca vi nada usando esse attachment
+//$attachment "physgun_attachment" "ValveBiped.physgun_attachment" 0 0 0 rotate -90 0 -90 // troca a posição do glow da physgun
+//$attachment "Emp_Holster" "ValveBiped.Emp_Holster_Attachment" 0 0 0 rotate -90 0 -90 // nunca vi nada usando esse attachment
+
+$eyeposition 0 -4.924 80.991 // posição da câmera em X Y Z para npcs em momentos onde o attachment "eyes" não é usado
+$illumposition 0 -4.24 60 // posição do pivô de luz em X Y Z (serve para definir quando fazer transições de iluminação em ambientes)
+$origin 0 0 0 // Define a origem do nosso modelo em X Y Z, até hoje nuca usei valor diferente desse
+
+$root "ValveBiped.Bip01_Pelvis" // Expõe que esse é o bone usado para calcular a velocidade de movimento.
+
+// Deixa de forma explícita que os ossos abaixo devem existir. Não removendo na otimização.
+//$bonemerge "ValveBiped.Ragdoll" // Esse raramente é usado.
+$bonemerge "ValveBiped.Bip01_Pelvis"
+$bonemerge "ValveBiped.Bip01_Spine"
+$bonemerge "ValveBiped.Bip01_Spine1"
+$bonemerge "ValveBiped.Bip01_Spine2"
+//$bonemerge "ValveBiped.Bip01_Spine3" // Parece meme, mas esse bone é opcional.
+$bonemerge "ValveBiped.Bip01_Spine4"
+$bonemerge "ValveBiped.Bip01_Neck1"
+$bonemerge "ValveBiped.Bip01_Head1"
+$bonemerge "ValveBiped.forward"
+$bonemerge "ValveBiped.Bip01_R_Thigh"
+$bonemerge "ValveBiped.Bip01_R_Calf"
+$bonemerge "ValveBiped.Bip01_R_Foot"
+$bonemerge "ValveBiped.Bip01_R_Toe0"
+$bonemerge "ValveBiped.Bip01_L_Thigh"
+$bonemerge "ValveBiped.Bip01_L_Calf"
+$bonemerge "ValveBiped.Bip01_L_Foot"
+$bonemerge "ValveBiped.Bip01_L_Toe0"
+$bonemerge "ValveBiped.Bip01_R_Clavicle"
+$bonemerge "ValveBiped.Bip01_R_UpperArm"
+$bonemerge "ValveBiped.Bip01_R_Forearm"
+$bonemerge "ValveBiped.Bip01_R_Hand"
+$bonemerge "ValveBiped.Anim_Attachment_RH"
+$bonemerge "ValveBiped.Bip01_R_Finger0"
+$bonemerge "ValveBiped.Bip01_R_Finger01"
+$bonemerge "ValveBiped.Bip01_R_Finger02"
+$bonemerge "ValveBiped.Bip01_R_Finger1"
+$bonemerge "ValveBiped.Bip01_R_Finger11"
+$bonemerge "ValveBiped.Bip01_R_Finger12"
+$bonemerge "ValveBiped.Bip01_R_Finger2"
+$bonemerge "ValveBiped.Bip01_R_Finger21"
+$bonemerge "ValveBiped.Bip01_R_Finger22"
+$bonemerge "ValveBiped.Bip01_R_Finger3"
+$bonemerge "ValveBiped.Bip01_R_Finger31"
+$bonemerge "ValveBiped.Bip01_R_Finger32"
+$bonemerge "ValveBiped.Bip01_R_Finger4"
+$bonemerge "ValveBiped.Bip01_R_Finger41"
+$bonemerge "ValveBiped.Bip01_R_Finger42"
+$bonemerge "ValveBiped.Bip01_L_Clavicle"
+$bonemerge "ValveBiped.Bip01_L_UpperArm"
+$bonemerge "ValveBiped.Bip01_L_Forearm"
+$bonemerge "ValveBiped.Bip01_L_Hand"
+$bonemerge "ValveBiped.Anim_Attachment_LH"
+$bonemerge "ValveBiped.Bip01_L_Finger0"
+$bonemerge "ValveBiped.Bip01_L_Finger01"
+$bonemerge "ValveBiped.Bip01_L_Finger02"
+$bonemerge "ValveBiped.Bip01_L_Finger1"
+$bonemerge "ValveBiped.Bip01_L_Finger11"
+$bonemerge "ValveBiped.Bip01_L_Finger12"
+$bonemerge "ValveBiped.Bip01_L_Finger2"
+$bonemerge "ValveBiped.Bip01_L_Finger21"
+$bonemerge "ValveBiped.Bip01_L_Finger22"
+$bonemerge "ValveBiped.Bip01_L_Finger3"
+$bonemerge "ValveBiped.Bip01_L_Finger31"
+$bonemerge "ValveBiped.Bip01_L_Finger32"
+$bonemerge "ValveBiped.Bip01_L_Finger4"
+$bonemerge "ValveBiped.Bip01_L_Finger41"
+$bonemerge "ValveBiped.Bip01_L_Finger42"
+
+// força hierarquia. Essa uma parte importante e deve ser respeitada
+$heirarchy "ValveBiped.Bip01_Pelvis" ""
+$heirarchy "ValveBiped.Bip01_Spine" "ValveBiped.Bip01_Pelvis"
+$heirarchy "ValveBiped.Bip01_L_Clavicle" "ValveBiped.Bip01_Spine4"
+$heirarchy "ValveBiped.Bip01_R_Clavicle" "ValveBiped.Bip01_Spine4"
+$heirarchy "ValveBiped.Bip01_L_Thigh" "ValveBiped.Bip01_Pelvis"
+$heirarchy "ValveBiped.Bip01_R_Thigh" "ValveBiped.Bip01_Pelvis"
+
+$alwayscollapse "ValveBiped.Bip01" // A valve usa isso por acaso?
+$alwayscollapse "blender_implicit" // Blender gera isso as vezes.

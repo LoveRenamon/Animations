@@ -1,0 +1,82 @@
+/* Animações */
+$pushd "anims" // navega para a pasta "anims"
+
+/* HACK/WARNING: the regular (not the noclip one) breath layer makes the player aim slightly to the right in order to
+ fix how weapons aim too much to the left in the first place. This may or may not create problems down the road... 
+
+For some reason I have to make the original one reference its own $animation!! The compositing system must be getting
+confused otherwise and it locks the pelvis, probably reading off gmod_breath_layer_sitting... really really weird stuff
+
+Abaixo as animações de respiração, que por algum motivo não funcionam direito... */
+//$animation a_gmod_breath "breath" subtract "reference" 0 fixuploop 0 60
+//$animation a_gmod_breath_sit "breath" subtract "reference" 0 fixuploop 0 60
+//$animation a_breath_noclip "breath_noclip" subtract "reference" 0 fixuploop 0 60
+
+// Jump
+//$animation "a_gmod_jump_delta" "jump_c" subtract "reference" 0
+//$animation "a_jump_land" "jump_land" subtract "a_jump_land" 40
+
+// Idle
+$animation "a_idle_layer" "idle1" fixuploop 0 279
+$animation "a_idle_layer_alt" "idle2" fixuploop 0 150
+//$animation "a_m_combine" "idle_unarmed" fixuploop 0 341
+//$animation "a_idle_fist" "fists_idle" fixuploop 0 127
+//$animation "a_idle_fist_layer" "fists_idle" fixuploop 0 127 subtract "a_idle_fist" 0
+
+// Walking
+$animation "a_WalkC" "idle1" loop startloop 0 rotateto -180 alignto "reference"
+$animation "a_WalkS" "WalkS" loop startloop 0 LX LY rotateto -180 alignto "reference"
+$animation "a_WalkSE" "WalkSE" loop startloop 0 LX LY rotateto -135 alignto "reference"
+$animation "a_WalkE" "WalkE" loop startloop 0 LX LY rotateto -90 alignto "reference"
+$animation "a_WalkNE" "WalkNE" loop startloop 0 LX LY rotateto -45 alignto "reference"
+$animation "a_WalkN" "WalkN" loop startloop 0 LX LY rotateto 0 alignto "reference"
+$animation "a_WalkN_suitcase" "suitcase_walk" loop LX LY rotateto 0 alignto "reference"
+$animation "a_WalkNW" "WalkNW" loop startloop 0 LX LY rotateto 45 alignto "reference"
+$animation "a_WalkW" "WalkW" loop startloop 0 LX LY rotateto 90 alignto "reference"
+$animation "a_WalkSW" "WalkSW" loop startloop 0 LX LY rotateto 135 alignto "reference"
+
+// Crouch walking
+$animation "a_CwalkC" "crouch_idle" startloop 0 loop rotateto -180 alignto "reference" //numframes 30 frames 0 0
+$animation "a_CwalkS" "Crouch_walkS"  startloop 0 loop LX LY rotateto -180 alignto "reference"
+$animation "a_CwalkSE" "Crouch_walkSE" startloop 0 loop LX LY rotateto -135 alignto "reference"
+$animation "a_CwalkE" "Crouch_walkE"  startloop 0 loop LX LY rotateto -90 alignto "reference"
+$animation "a_CwalkNE" "Crouch_walkNE" startloop 0 loop LX LY rotateto -45 alignto "reference"
+$animation "a_CwalkN" "crouch_walkN"  startloop 0 loop LX LY rotateto 0 alignto "reference"
+$animation "a_CwalkNW" "Crouch_walkNW" startloop 0 loop LX LY rotateto 45 alignto "reference"
+$animation "a_CwalkW" "Crouch_walkW"  startloop 0 loop LX LY rotateto 90 alignto "reference"
+$animation "a_CwalkSW" "Crouch_walkSW" startloop 0 loop LX LY rotateto 135 alignto "reference"
+
+// Running
+$animation "a_RunS" "RunS"  loop LX LY startloop 0 rotateto -180 alignto "reference"
+$animation "a_RunSE" "RunSE" loop LX LY startloop 0 rotateto -135 alignto "reference"
+$animation "a_RunE" "RunE"  loop LX LY startloop 0 rotateto -90  alignto "reference"
+$animation "a_RunNE" "RunNE" loop LX LY startloop 0 rotateto -45  alignto "reference"
+$animation "a_RunN" "RunN"  loop LX LY startloop 0 rotateto 0    alignto "reference"
+$animation "a_RunNW" "RunNW" loop LX LY startloop 0 rotateto 45   alignto "reference"
+$animation "a_RunW" "RunW"  loop LX LY startloop 0 rotateto 90   alignto "reference"
+$animation "a_RunSW" "RunSW" loop LX LY startloop 0 rotateto 135  alignto "reference"
+
+$animation "a_RunN_ch" "run_charging"   loop LX LY startloop 0 rotateto 0 alignto "reference"
+$animation "a_RunN_p1" "run_panicked"   loop LX LY startloop 0 rotateto 0 alignto "reference"
+$animation "a_RunN_p2" "runN_panicked2" loop LX LY startloop 0 rotateto 0 alignto "reference"
+$animation "a_RunN_p3" "runN_panicked3" loop LX LY startloop 0 rotateto 0 alignto "reference"
+$animation "a_RunN_p4" "runN_panicked4" loop LX LY startloop 0 rotateto 0 alignto "reference"
+$animation "a_RunN_p5" "runN_protected" loop LX LY startloop 0 rotateto 0 alignto "reference"
+
+// Swimming
+$animation "a_SwimS" "swim_s"  loop LX LY fps 50
+$animation "a_SwimSE" "swim_se" loop LX LY fps 50
+$animation "a_SwimE" "swim_e"  loop LX LY fps 50
+$animation "a_SwimNE" "swim_ne" loop LX LY fps 50
+$animation "a_SwimN" "swim_n"  loop LX LY fps 50
+$animation "a_SwimNW" "swim_nw" loop LX LY fps 50
+$animation "a_SwimW" "swim_w"  loop LX LY fps 50
+$animation "a_SwimSW" "swim_sw" loop LX LY fps 50
+
+// Shotgun
+//$animation "a_shotgun_pump" "shotgun_pump_layer" subtract "reference" 0
+
+// Fists
+//$animation range_fists_r_up "fightpose_punchA_Upper" subtract "range_fists_r_up" 0 weightlist "UpperBodyBlend" fps 50.00
+//$animation range_fists_r_mid "fightpose_punchA" subtract "range_fists_r_mid" 0 weightlist "UpperBodyBlend" fps 50.00
+//$animation range_fists_r_lo "fightpose_punchA_Lower" subtract "range_fists_r_lo" 0 weightlist "UpperBodyBlend" fps 50.00

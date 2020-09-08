@@ -1,39 +1,28 @@
-/* Animações Masculinas */
+// --------------------------------------------------------
+//  Garry's Mod public source set for user animations
+// --------------------------------------------------------
 
-// Para mais informações veja o f_anm.qc que está melhor documentado.
-$modelname "debiddo/m_anm.mdl" //
+$modelname m_anm_user.mdl
 
-$definevariable g "base_m" // this defines the gender for some animations
-
-$pushd "player" // push files from "player" folder
-
-$include "humans_sdk/male/commonbones.qci"
-$include "humans_sdk/standardhierarchy.qci"
-$include "humans_sdk/standardikchains.qci"
-$include "humans_sdk/male/hitbox.qci"
+$include "includes\commonbones_m.qci"
+$include "includes\standardhierarchy.qci"
+$include "includes\standardikchains.qci"
+$include "includes\hitbox.qci"
 
 $lockbonelengths
 
-// $lockdefinebones
-
 $attachment "eyes" "ValveBiped.Bip01_Head1" 0 -4 67.5 absolute
 
-$sequence "reference" "../humans_sdk/male/ragdoll_pose"
+$sequence reference "includes\ragdoll_pose"
 
-$include "gm_base_m.qci"
-$include "gm_weightlists.qci"
-$include "macro_aimlayers.qci"
-$include "macro_gestures.qci"
-$include "macro_movement_m.qci"
-$include "macro_zombie.qci"
-$include "gm_anims.qci"
-$include "gm_sequences_zombie_humans.qci"
+$include gm_weightlists.qci
+$include gm_base_m.qci
+$include macro_aimlayers.qci
+$include macro_gestures.qci
+$include macro_movement_m.qci
+$include macro_zombie.qci
 
-$include "player/body_poses_lean.qci" // pose parameters e.g. head_rot, body_yaw...
-
-// Optimization commands
-
-$animblocksize 32
+$include gm_anims.qci // your stuff goes in there!
 
 $BoneSaveFrame "ValveBiped.Bip01_L_Thigh" rotation
 $BoneSaveFrame "ValveBiped.Bip01_L_Calf" rotation
@@ -53,4 +42,3 @@ $BoneSaveFrame "ValveBiped.Bip01_R_Clavicle" rotation
 $BoneSaveFrame "ValveBiped.Bip01_R_UpperArm" rotation
 $BoneSaveFrame "ValveBiped.Bip01_R_Forearm" rotation
 $BoneSaveFrame "ValveBiped.Bip01_R_Hand" rotation
-

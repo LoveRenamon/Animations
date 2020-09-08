@@ -1,35 +1,41 @@
-$modelname f_anm.mdl
+/* Animações Femininas */
+$modelname "debiddo/f_anm.mdl" // diretório de saída desse arquivo, diferente do original para não conflitar.
 
-$definevariable g "base_f" // this defines the gender for some animations
+$definevariable "g" "base_f" // Criamos uma variável chamada "g" de gênero em algumas animações. Usada para sons somente.
 
-$pushd	"player"
+$pushd "player" // Abre a pasta player para ler arquivos
 
-$include "Humans_sdk\female\commonbones.qci"
-$include "Humans_sdk\standardhierarchy.qci"
-$include "Humans_sdk\standardikchains.qci"
-$include "Humans_sdk\male\hitbox.qci"
+// Os includes abaixo VÃO precisar de retrabalho
+$include "Humans_sdk/female/commonbones.qci"
+$include "Humans_sdk/standardhierarchy.qci"
+$include "Humans_sdk/standardikchains.qci"
+$include "Humans_sdk/male/hitbox.qci"
 
 $lockbonelengths
 
-// $lockdefinebones
+// $lockdefinebones // Não sei pra que serve isso.
 
-$attachment "eyes" "ValveBiped.Bip01_Head1" 0 -3.5 65.2 absolute
+$attachment "eyes" "ValveBiped.Bip01_Head1" 0 -3.5 65.2 absolute // Isso é para se não houver attachment padrão?
 
-$sequence reference "..\humans_sdk\male\ragdoll_pose"
+// Arrumar. Nossa "t-pose" feminina atual usa o default masculino.
+$sequence "reference" "../humans_sdk/male/ragdoll_pose" // Isso estraga compatiblidade com "f_anm.mdl" atual do gmod13
+//$sequence "reference" "anims/reference_female" // Vamos substituir por isso
 
-$include gm_base_f.qci // base anims e.g. movement cycles
-$include gm_weightlists.qci
-$include macro_aimlayers.qci
-$include macro_gestures.qci
-$include macro_movement_f.qci
-$include macro_zombie.qci
-$include gm_anims.qci
-$include gm_sequences_zombie_humans.qci
+/* Vamos lá, tudo quando include, deverá ficar na pasta de includes. 
+Por que? 
+Vamos evitar a bagunça que foi para entender todo esse código quando começei. */
+$include "includes/gm_base_f.qci" 
+$include "includes/gm_weightlists.qci"
+$include "includes/macro_aimlayers.qci"
+$include "includes/macro_gestures.qci"
+$include "includes/macro_movement_f.qci"
+$include "includes/macro_zombie.qci"
+$include "includes/gm_anims.qci"
+$include "includes/gm_sequences_zombie_humans.qci"
 
 $include "player/body_poses_lean.qci" // pose parameters e.g. head_rot, body_yaw...
 
 // Optimization commands
-
 $animblocksize 32
 
 $BoneSaveFrame "ValveBiped.Bip01_L_Thigh" rotation

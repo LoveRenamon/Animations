@@ -1,8 +1,9 @@
-$modelname z_anm.mdl
+/* Animações dos Mortos-vivos */
+$modelname "debiddo/z_anm.mdl" // para não conflitar com as originais.
 
-$definevariable g "base_m" // zombie gender is male
+$definevariable "g" "base_m" // zombie gender is male
 
-$pushd	"player"
+$pushd "player"
 
 // Zombie definebones
 // Get your scrolling finger ready

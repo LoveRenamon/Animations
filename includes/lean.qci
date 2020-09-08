@@ -1,0 +1,77 @@
+/* Controles de movimentos: Cabeça e tronco */ 
+$pushd "anims" // pega animações em "anims" se necessário
+
+// Head/chest/body posture animations
+$animation "a_pose_neutral" "body_poses_lean" frames 0 0
+
+$animation "a_body_rot" "body_poses_lean" frame 0 0 noanimation
+$animation "a_body_rot_z_rt" "body_poses_lean" frame 58 58 subtract "a_pose_neutral" 0 weightlist "fullspinenohead"
+$animation "a_body_rot_z_lt" "body_poses_lean" frame 67 67 subtract "a_pose_neutral" 0 weightlist "fullspinenohead"
+$animation "a_spine_rot" "body_poses_lean" frame 0 0 noanimation
+$animation "a_spine_rot_z_rt" "body_poses_lean" frame 88 88 subtract "a_pose_neutral" 0 weightlist "upperspinenohead"
+$animation "a_spine_rot_z_lt" "body_poses_lean" frame 96 96 subtract "a_pose_neutral" 0 weightlist "upperspinenohead"
+$animation "a_head_rot" "body_poses_lean" frame 0 0 noanimation
+$animation "a_head_rot_lt" "body_poses_lean" frame 97 97 subtract "a_pose_neutral" 0 weightlist "upperspine" 
+$animation "a_head_rot_rt" "body_poses_lean" frame 98 98 subtract "a_pose_neutral" 0 weightlist "upperspine"
+$animation "a_head_rot_dwn" "body_poses_lean" frame 101 101 subtract "a_pose_neutral" 0 weightlist "upperspine"
+$animation "a_head_rot_up" "body_poses_lean" frame 102 102 subtract "a_pose_neutral" 0 weightlist "upperspine"
+$animation "a_head_rot_z_rt" "body_poses_lean" frame 104 104 subtract "a_pose_neutral" 0 weightlist "upperspine"
+$animation "a_head_rot_z_lt" "body_poses_lean" frame 106 106 subtract "a_pose_neutral" 0 weightlist "upperspine"
+
+$sequence "body_rot_z" { 
+	"a_body_rot_z_lt" "a_body_rot" "a_body_rot_z_rt"
+	blendref "a_pose_neutral"
+	blendcenter "a_body_rot"
+	blend "aim_yaw" 60 -60
+	delta 
+	autoplay 
+	hidden
+	iklock "rfoot" 1 0 iklock "lfoot" 1 0
+	realtime
+	fps 1
+}
+
+// BODY_ROT_Z was reconverted into a very weak layer that rotates the body very slightly. Think of it as
+// a "neutral" aimlayer. It needs to be manually added to sequences; addlayer body_rot_z
+
+$sequence "head_rot_z" { 
+	"a_head_rot_z_lt" "a_head_rot" "a_head_rot_z_rt"
+	// blendref "a_pose_neutral"
+	blendcenter "a_head_rot"
+	blend "head_yaw" 75 -75
+	delta 
+	autoplay 
+	hidden
+}
+
+$sequence "head_rot_y" { 
+	"a_head_rot_dwn" "a_head_rot" "a_head_rot_up"
+	// blendref "a_pose_neutral"
+	blendcenter "a_head_rot"
+	blend "head_pitch" 60 -60
+	delta 
+	autoplay
+	hidden
+}
+
+// $sequence "head_rot_x" { 
+	// "a_head_rot_lt" "a_head_rot" "a_head_rot_rt"
+	// blendref "a_pose_neutral"
+	// blendcenter "a_head_rot"
+	// calcblend head_roll "eyes" XR 
+	// delta 
+	// autoplay 
+	// hidden
+// }
+
+// $sequence "spine_rot_z" { 
+	// "a_spine_rot_z_lt" "a_spine_rot" "a_spine_rot_z_rt"
+	// blendref "a_pose_neutral"
+	// blendcenter "a_spine_rot"
+	// calcblend spine_yaw "eyes" ZR 
+	// delta 
+	// autoplay 
+	// hidden
+// }
+
+$popd
