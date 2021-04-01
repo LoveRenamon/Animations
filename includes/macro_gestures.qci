@@ -16,7 +16,7 @@ $continue $gesturename$
 
 $definemacro MakeSplineGesture splinename filename weights peak tail end \\
 $sequence $splinename$_base $filename$ weightlist $weights$ hidden \\
-$sequence $splinename$ "..\anims\ragdoll" noanimation blendlayer $splinename$_base 0 $peak$ $tail$ $end$ spline numframes $end$ \\
+$sequence $splinename$ "../anims/ragdoll" noanimation blendlayer $splinename$_base 0 $peak$ $tail$ $end$ spline numframes $end$ \\
 $continue $splinename$
 
 // ----------------------------------------------------------------------------
@@ -43,7 +43,7 @@ $sequence $splinename$_original					$filename$ hidden \\
 $animation a_$splinename$_pelvis_layer 			$filename$ subtract $splinename$_original 0 \\
 $sequence $splinename$_pelvis_layer 			a_$splinename$_pelvis_layer delta weightlist $pelvisweights$ fadeout 0.1 hidden \\
 $sequence $splinename$_base_layer 				$filename$ weightlist $baseweights$ fadeout 0.1 hidden \\
-$sequence $splinename$ "..\anims\ragdoll" noanimation blendlayer $splinename$_pelvis_layer 0 $peak$ $tail$ $end$ spline blendlayer $splinename$_base_layer 0 $peak$ $tail$ $end$ spline numframes $end$ iklock rfoot 1 0 iklock lfoot 1 0 fadeout 0.1 ikrule lhand release range 0 $peak$ $tail$ $end$ ikrule rhand release range 0 $peak$ $tail$ $end$ \\
+$sequence $splinename$ "../anims/ragdoll" noanimation blendlayer $splinename$_pelvis_layer 0 $peak$ $tail$ $end$ spline blendlayer $splinename$_base_layer 0 $peak$ $tail$ $end$ spline numframes $end$ iklock rfoot 1 0 iklock lfoot 1 0 fadeout 0.1 ikrule lhand release range 0 $peak$ $tail$ $end$ ikrule rhand release range 0 $peak$ $tail$ $end$ \\
 $continue $splinename$
 
 // $MakePelvisDeltaLayer (deprecated but usable... I think)
@@ -51,7 +51,7 @@ $continue $splinename$
 $definemacro MakePelvisDeltaLayer pelvisname filename peak tail end \\
 $animation a_$pelvisname$_pelvis $filename$ subtract reference 0 \\
 $sequence $pelvisname$_delta_base a_$pelvisname$_pelvis weightlist PelvisOnly delta hidden \\
-$sequence $pelvisname$ "..\anims\ragdoll" noanimation blendlayer $pelvisname$_delta_base 0 $peak$ $tail$ $end$ spline numframes $end$ \\
+$sequence $pelvisname$ "../anims/ragdoll" noanimation blendlayer $pelvisname$_delta_base 0 $peak$ $tail$ $end$ spline numframes $end$ \\
 $continue $pelvisname$
 
 // ------------------------------------
@@ -70,7 +70,7 @@ $continue $rangename$
 
 $definemacro MakeJump jumpname filename frame aimlayer \\
 $animation a_$jumpname$ $filename$ frame $frame$ $frame$ \\
-$sequence $jumpname$ "..\anims\jump_c" { \\
+$sequence $jumpname$ "../anims/jump_c" { \\
 	weightlist UpperBodyBlend \\
 	worldspaceblend a_$jumpname$ \\
 	weightlist AllBones \\
