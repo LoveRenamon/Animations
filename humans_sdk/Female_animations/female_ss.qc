@@ -1,11 +1,7 @@
-// create empty file
+$modelname "Humans/female_ss.mdl"
 
-$modelname Humans\female_ss.mdl
+$include "../gmod-animations/humans_sdk/male/commonbones.qci"
+$include "../gmod-animations/humans_sdk/standardhierarchy.qci"
+$include "../gmod-animations/humans_sdk/standardikchains.qci"
 
-$include "..\humans\male\commonbones.qci"
-$include "..\humans\standardhierarchy.qci"
-$include "..\humans\standardikchains.qci"
-
-$sequence reference "..\humans\male_animations\idle01" frame 0 0
-
-
+$sequence reference "../gmod-animations/humans_sdk/male_animations/idle01" frame 0 0

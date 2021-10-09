@@ -56,7 +56,7 @@ $definebone "ValveBiped.Bip01_R_Finger01" "ValveBiped.Bip01_R_Finger0" 1.393001 
 $definebone "ValveBiped.Bip01_R_Finger02" "ValveBiped.Bip01_R_Finger01" 1.099999 -0.000001 -0.000001 -0.752236 -16.433285 0.000001 0.000001 0.000000 0.000000 0.000000 0.000002 0.000001
 
 // the heads intended "forward" direction, independent of actual eye-nose-forward direction
-$attachment "forward" "ValveBiped.forward" 0 0 0
+$attachment forward "ValveBiped.forward" 0 0 0
 
 //common anim attachments
 $attachment anim_attachment_RH "ValveBiped.Anim_Attachment_RH" 0 0 0 rotate -90 0 -90

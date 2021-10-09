@@ -1,22 +1,22 @@
 // add the editable flex controllers
-flexcontroller eyelid right_lid_raiser left_lid_raiser 
+flexcontroller eyelid right_lid_raiser left_lid_raiser
 flexcontroller eyelid right_lid_tightener left_lid_tightener
 flexcontroller eyelid right_lid_droop left_lid_droop
 flexcontroller eyelid right_lid_closer left_lid_closer
 flexcontroller eyelid half_closed
 flexcontroller eyelid blink
 flexcontroller brow right_inner_raiser left_inner_raiser
-flexcontroller brow right_outer_raiser left_outer_raiser 
+flexcontroller brow right_outer_raiser left_outer_raiser
 flexcontroller brow right_lowerer left_lowerer
 flexcontroller nose right_cheek_raiser left_cheek_raiser
 flexcontroller nose wrinkler dilator
-flexcontroller mouth right_upper_raiser left_upper_raiser 
+flexcontroller mouth right_upper_raiser left_upper_raiser
 flexcontroller mouth right_corner_puller left_corner_puller
 flexcontroller mouth right_corner_depressor left_corner_depressor
 flexcontroller mouth chin_raiser
-flexcontroller phoneme right_part left_part 
-flexcontroller phoneme right_puckerer left_puckerer 
-flexcontroller phoneme right_funneler left_funneler 
+flexcontroller phoneme right_part left_part
+flexcontroller phoneme right_puckerer left_puckerer
+flexcontroller phoneme right_funneler left_funneler
 flexcontroller phoneme right_stretcher left_stretcher
 flexcontroller phoneme bite presser tightener jaw_clencher jaw_drop
 flexcontroller phoneme right_mouth_drop left_mouth_drop
@@ -131,7 +131,3 @@ localvar right_drop left_drop
 
 // set the mouth shader illumination to roughly how far the mouth is open
 %mouth = %AU27R * 0.5 + %AU27L * 0.5 + %AU22R * 0.35 + %AU22L * 0.35 + %AU18R * 0.25 + %AU18L * 0.25 + %AU25R * 0.35 + %AU25L * 0.35 + %AU32 * 0.5 + %AU12AU25 + %AU16 * 0.40
-
-
-
-

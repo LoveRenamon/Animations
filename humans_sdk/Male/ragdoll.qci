@@ -1,6 +1,3 @@
-$surfaceprop "flesh"
-
-$cdmaterials models\humans\male
 $collisionjoints ragdoll {
 
 	$mass 90.0
@@ -84,4 +81,4 @@ $collisionjoints ragdoll {
 	$jointcollide "valvebiped.bip01_r_forearm" "valvebiped.bip01_l_thigh"
 	$jointcollide "valvebiped.bip01_r_forearm" "valvebiped.bip01_r_thigh"
 }
-$sequence ragdoll 		"ragdoll_pose" 		FPS 30 		activity ACT_DIERAGDOLL 1
+$sequence ragdoll "ragdoll_pose" FPS 30 activity ACT_DIERAGDOLL 1
